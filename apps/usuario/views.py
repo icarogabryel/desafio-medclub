@@ -1,0 +1,31 @@
+from rest_framework import generics, permissions, status
+from rest_framework.authtoken.models import Token
+from rest_framework.request import Request
+from rest_framework.response import Response
+from rest_framework.views import Response as DRFResponse
+
+from .serializers import LoginSerializer, RegisterSerializer, UserSerializer
+
+
+class RegistrarView(generics.CreateAPIView):
+    serializer_class = RegisterSerializer
+
+
+class LogarView(generics.GenericAPIView):
+    serializer_class = LoginSerializer
+
+    def post(self, request: Request, *args, **kwargs) -> DRFResponse:
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        usuario = serializer.validated_data['usuario']
+        token, _ = Token.objects.get_or_create(user=usuario)
+
+        return Response({'token': token.key}, status=status.HTTP_200_OK)
+
+
+class PerfilView(generics.RetrieveUpdateAPIView):
+    permission_classes = [permissions.IsAuthenticated]
+    serializer_class = UserSerializer
+
+    def get_object(self):
+        return self.request.user
