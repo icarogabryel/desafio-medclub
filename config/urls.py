@@ -19,10 +19,12 @@ from django.urls import include, path
 
 from apps.item.urls import urlpatterns as item_urls
 from apps.usuario.urls import urlpatterns as usuario_urls
+from apps.pedido.urls import urlpatterns as pedido_urls
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('itens/', include(item_urls)),
     path('usuario/', include(usuario_urls)),
+    path('pedidos/', include(pedido_urls)),
 ]
