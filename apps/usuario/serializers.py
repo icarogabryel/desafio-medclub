@@ -1,6 +1,6 @@
 from django.contrib.auth import authenticate
 from django.contrib.auth.models import User
-from django.contrib.auth.password_validation import validate_password
+from django.contrib.auth.password_validation import validate_password as dj_validate_password
 from rest_framework import serializers
 
 
@@ -38,7 +38,7 @@ class RegisterSerializer(serializers.ModelSerializer):
 
     # Apenas senhas válidas são permitidas
     def validate_password(self, value):  #Função da classe
-        validate_password(value)  # Função do Django
+        dj_validate_password(value)  # Função do Django
         return value
 
 
