@@ -1,10 +1,10 @@
 from django.urls import path
 
-from .views import ItemListCreateView
+from .views import ItemList
 
 
 app_name = 'item'
 
 urlpatterns = [
-    path('', ItemListCreateView.as_view(), name='item-list-create'),
+    path('', ItemList.as_view(), name='item-list-create'),
 ]
