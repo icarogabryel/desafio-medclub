@@ -8,10 +8,16 @@ from .serializers import LoginSerializer, RegisterSerializer, UserSerializer
 
 
 class RegistrarView(generics.CreateAPIView):
+    """
+    View para registrar novos usuários. Retorna os dados do usuário criado.
+    """
     serializer_class = RegisterSerializer
 
 
 class LogarView(generics.GenericAPIView):
+    """
+    View para realizar o login de usuários. Retorna um token de autenticação.
+    """
     serializer_class = LoginSerializer
 
     def post(self, request: Request, *args, **kwargs) -> DRFResponse:
@@ -24,6 +30,10 @@ class LogarView(generics.GenericAPIView):
 
 
 class PerfilView(generics.RetrieveUpdateAPIView):
+    """
+    View para obter e atualizar o perfil do usuário autenticado. Pega o token
+    de autenticação do usuário. Retorna os dados do usuário.
+    """
     permission_classes = [permissions.IsAuthenticated]
     serializer_class = UserSerializer
 
