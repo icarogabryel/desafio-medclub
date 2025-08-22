@@ -1,8 +1,10 @@
 # Desafio Medclub
 
-Nesse repositório, se encontra o código fonte para um backend RESTful que gerencia usuários, pedidos e itens.Foi construído usando Python, Django, Django Rest Framework e Python Dotenv. Sua autenticação é feita via DRF Token.
+Nesse repositório, se encontra o código fonte para um backend RESTful que gerencia usuários, pedidos e itens. Foi construído usando Python, Django, Django Rest Framework e Python Dotenv. Sua autenticação é feita via DRF Token.
 
+## Documentação da API
 
+A documentação completa da API pode ser encontrada [aqui](docs/api.md). Nela, você encontrará detalhes sobre os endpoints disponíveis, métodos e formatos de requisições e respostas.
 
 ## Instalação
 
@@ -21,7 +23,7 @@ Nesse repositório, se encontra o código fonte para um backend RESTful que gere
 3. Crie um ambiente virtual e ative-o:
 
    ```bash
-   python -m .venv venv
+   python -m venv .venv
    source .venv/bin/activate  # No Windows use: .venv\Scripts\activate
    ```
 
@@ -46,6 +48,7 @@ Nesse repositório, se encontra o código fonte para um backend RESTful que gere
    ```
 
 7. Inicie o servidor de desenvolvimento:
+
    ```bash
    python manage.py runserver
    ```
