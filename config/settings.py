@@ -32,6 +32,17 @@ ALLOWED_HOSTS = ['*']
 
 # Application definition
 
+MEUS_APPS = [
+    'apps.usuario',
+    'apps.item',
+    'apps.pedido',
+]
+
+REST_FRAMEWORK_APPS = [
+    'rest_framework',
+    'rest_framework.authtoken',
+]
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -39,13 +50,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rest_framework',
-    'rest_framework.authtoken',
-    'apps.usuario',
-    'apps.item',
-    'apps.pedido',
-
-]
+] + REST_FRAMEWORK_APPS + MEUS_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

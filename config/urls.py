@@ -4,8 +4,8 @@ from django.urls import include, path
 from apps.item.urls import urlpatterns as item_urls
 from apps.pedido.urls import urlpatterns as pedido_urls
 from apps.usuario.urls import urlpatterns as usuario_urls
-
 from apps.usuario.views import LogarView, RegistrarView
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
